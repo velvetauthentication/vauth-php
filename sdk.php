@@ -55,6 +55,16 @@ class VauthSDK {
         ]);
     }
 
+    public function AuthReg($username, $password, $email) {
+        return $this->sendRequest('index.php', [
+            'type' => 'keyless',
+            'username' => $this->encryptData($username, $this->secret),
+            'password' => $this->encryptData($password, $this->secret),
+            'email' => $this->encryptData($email, $this->secret),
+            'hwid' => "" // Set HWID as null
+        ]);
+    }
+
     public function login($username, $password) {
         return $this->sendRequest('index.php', [
             'type' => 'login',
