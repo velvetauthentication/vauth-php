@@ -13,10 +13,9 @@ $sdk = new VauthSDK($appId, $secret, $version);
 if(isset($_POST['register'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $token = $_POST['token'];
     $email = $_POST['email'];
 
-    $registrationResponse = $sdk->register($username, $password, $token, $email);
+    $registrationResponse = $sdk->AuthReg($username, $password, $email);
 
     if(is_array($registrationResponse) && isset($registrationResponse['message'])) {
         if($registrationResponse['message'] === 'registration successful' || $registrationResponse['message'] === 'Registration successful') {
@@ -49,7 +48,6 @@ $registrationMessage = isset($registrationMessage) ? $registrationMessage : '';
     <form method="post" action="">
         Username: <input type="text" name="username" required><br>
         Password: <input type="password" name="password" required><br>
-        Token: <input type="text" name="token" required><br>
         Email: <input type="email" name="email" required><br>
         <input type="submit" name="register" value="Register">
     </form>
