@@ -1,7 +1,7 @@
 <?php
 
 class VauthSDK {
-    private $apiBaseUrl = 'https://velvetauth.com/enc/'; 
+    private $apiBaseUrl = 'https://velvetauth.com/api/1.2'; 
     private $appId;
     private $secret;
     private $version;
